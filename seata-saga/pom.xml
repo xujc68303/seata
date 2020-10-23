@@ -10,6 +10,45 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>seata-saga</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>saga-order</module>
+        <module>saga-eureka</module>
+        <module>saga-storage</module>
+        <module>saga-account</module>
+    </modules>
+
+    <dependencies>
+
+
+        <!--seata-->
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>${seata-all.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-seata</artifactId>
+            <version>${alibaba-seata.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>seata-all</artifactId>
+                    <groupId>io.seata</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

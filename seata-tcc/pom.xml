@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>seata-tcc</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tcc-order</module>
+        <module>tcc-eureka</module>
+        <module>tcc-account</module>
+        <module>tcc-storage</module>
+    </modules>
 
 
 </project>

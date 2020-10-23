@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>seata-at</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>at-order</module>
+        <module>at-account</module>
+        <module>at-eureka</module>
+        <module>at-storage</module>
+    </modules>
 
 
 </project>
