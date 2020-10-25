@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjc.seataat.order.mapper.dao.OrderDOMapper">
+    <resultMap id="BaseResultMap" type="com.xjc.seataat.order.mapper.dataobject.OrderDO">
+        <!--@mbg.generated-->
+        <!--@Table `order`-->
+        <id column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="user_id" property="userId"/>
+        <result column="product_id" property="productId"/>
+        <result column="count" property="count"/>
+        <result column="pay_amount" property="payAmount"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, order_id, user_id, product_id, `count`, pay_amount, `status`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete
+        from `order`
+        where id = #{id}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seataat.order.mapper.dataobject.OrderDO"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into `order` (order_id, user_id, product_id, `count`, pay_amount, `status`)
+        values (#{orderId}, #{userId}, #{productId}, #{count}, #{payAmount}, #{status})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.xjc.seataat.order.mapper.dataobject.OrderDO" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into `order`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                order_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="count != null">
+                `count`,
+            </if>
+            <if test="payAmount != null">
+                pay_amount,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                #{orderId},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="productId != null">
+                #{productId},
+            </if>
+            <if test="count != null">
+                #{count},
+            </if>
+            <if test="payAmount != null">
+                #{payAmount},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seataat.order.mapper.dataobject.OrderDO">
+        <!--@mbg.generated-->
+        update `order`
+        <set>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="count != null">
+                `count` = #{count},
+            </if>
+            <if test="payAmount != null">
+                pay_amount = #{payAmount},
+            </if>
+            <if test="status != null">
+                `status` = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xjc.seataat.order.mapper.dataobject.OrderDO">
+        <!--@mbg.generated-->
+        update `order`
+        set order_id   = #{orderId},
+            user_id    = #{userId},
+            product_id = #{productId},
+            `count`    = #{count},
+            pay_amount = #{payAmount},
+            `status`   = #{status}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteByOrderId">
+        delete from `order`
+        where order_id=#{orderId}
+    </delete>
+
+    <select id="selectAllByProductId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where product_id=#{productId}
+    </select>
+</mapper>
