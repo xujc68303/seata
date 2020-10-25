@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xjc.seata.order.mapper.dao.OrderDOMapper">
-    <resultMap id="BaseResultMap" type="com.xjc.seata.order.mapper.dataobject.OrderDO">
+<mapper namespace="com.xjc.seatasaga.order.mapper.dao.OrderDOMapper">
+    <resultMap id="BaseResultMap" type="com.xjc.seatasaga.order.mapper.dataobject.OrderDO">
         <!--@mbg.generated-->
         <!--@Table `order`-->
         <id column="id" property="id"/>
@@ -29,14 +29,14 @@
         from `order`
         where id = #{id}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seata.order.mapper.dataobject.OrderDO"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seatasaga.order.mapper.dataobject.OrderDO"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into `order` (order_id, user_id, product_id, `count`, pay_amount, `status`)
         values (#{orderId}, #{userId}, #{productId}, #{count}, #{payAmount}, #{status})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.xjc.seata.order.mapper.dataobject.OrderDO" useGeneratedKeys="true">
+            parameterType="com.xjc.seatasaga.order.mapper.dataobject.OrderDO" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into `order`
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -80,7 +80,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seata.order.mapper.dataobject.OrderDO">
+    <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seatasaga.order.mapper.dataobject.OrderDO">
         <!--@mbg.generated-->
         update `order`
         <set>
@@ -105,7 +105,7 @@
         </set>
         where id = #{id}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.xjc.seata.order.mapper.dataobject.OrderDO">
+    <update id="updateByPrimaryKey" parameterType="com.xjc.seatasaga.order.mapper.dataobject.OrderDO">
         <!--@mbg.generated-->
         update `order`
         set order_id   = #{orderId},

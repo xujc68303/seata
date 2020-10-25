@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xjc.seata.storage.mapper.dao.StorageDOMapper">
-  <resultMap id="BaseResultMap" type="com.xjc.seata.storage.mapper.dataobject.StorageDO">
+<mapper namespace="com.xjc.seatasaga.storage.mapper.dao.StorageDOMapper">
+  <resultMap id="BaseResultMap" type="com.xjc.seatasaga.storage.mapper.dataobject.StorageDO">
     <!--@mbg.generated-->
     <!--@Table `storage`-->
     <id column="id" property="id" />
@@ -25,12 +25,12 @@
     delete from `storage`
     where id = #{id}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seata.storage.mapper.dataobject.StorageDO" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seatasaga.storage.mapper.dataobject.StorageDO" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into `storage` (product_id, `count`, money)
     values (#{productId}, #{count}, #{money})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xjc.seata.storage.mapper.dataobject.StorageDO" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xjc.seatasaga.storage.mapper.dataobject.StorageDO" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into `storage`
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -56,7 +56,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seata.storage.mapper.dataobject.StorageDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seatasaga.storage.mapper.dataobject.StorageDO">
     <!--@mbg.generated-->
     update `storage`
     <set>
@@ -72,7 +72,7 @@
     </set>
     where id = #{id}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjc.seata.storage.mapper.dataobject.StorageDO">
+  <update id="updateByPrimaryKey" parameterType="com.xjc.seatasaga.storage.mapper.dataobject.StorageDO">
     <!--@mbg.generated-->
     update `storage`
     set product_id = #{productId},

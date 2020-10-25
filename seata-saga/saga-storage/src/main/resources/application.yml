@@ -37,4 +37,4 @@ feign:
 
 mybatis:
   mapperLocations: classpath:mappers/*.xml
-  typeAliasesPackage: com.xjc.seata.storage.mapper.dataobject
+  typeAliasesPackage: com.xjc.seatasaga.storage.mapper.dataobject

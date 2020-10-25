@@ -39,4 +39,4 @@ feign:
 
 mybatis:
   mapperLocations: classpath:mappers/*.xml
-  typeAliasesPackage: com.xjc.seata.account.mapper.dataobject
+  typeAliasesPackage: com.xjc.seatasaga.account.mapper.dataobject

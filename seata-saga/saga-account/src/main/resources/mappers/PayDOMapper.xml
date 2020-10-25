@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xjc.seata.account.mapper.dao.PayDOMapper">
-    <resultMap id="BaseResultMap" type="com.xjc.seata.account.mapper.dataobject.PayDO">
+<mapper namespace="com.xjc.seatasaga.account.mapper.dao.PayDOMapper">
+    <resultMap id="BaseResultMap" type="com.xjc.seatasaga.account.mapper.dataobject.PayDO">
         <!--@mbg.generated-->
         <!--@Table pay-->
         <id column="id" property="id"/>
@@ -25,14 +25,15 @@
         from pay
         where id = #{id}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjc.seata.account.mapper.dataobject.PayDO"
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.xjc.seatasaga.account.mapper.dataobject.PayDO"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into pay (user_id, money)
         values (#{userId}, #{money})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
-            parameterType="com.xjc.seata.account.mapper.dataobject.PayDO" useGeneratedKeys="true">
+            parameterType="com.xjc.seatasaga.account.mapper.dataobject.PayDO" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into pay
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -52,7 +53,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seata.account.mapper.dataobject.PayDO">
+    <update id="updateByPrimaryKeySelective" parameterType="com.xjc.seatasaga.account.mapper.dataobject.PayDO">
         <!--@mbg.generated-->
         update pay
         <set>
@@ -65,7 +66,7 @@
         </set>
         where id = #{id}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.xjc.seata.account.mapper.dataobject.PayDO">
+    <update id="updateByPrimaryKey" parameterType="com.xjc.seatasaga.account.mapper.dataobject.PayDO">
         <!--@mbg.generated-->
         update pay
         set user_id = #{userId},

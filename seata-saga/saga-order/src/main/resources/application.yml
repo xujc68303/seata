@@ -30,4 +30,4 @@ eureka:
 
 mybatis:
   mapperLocations: classpath:mappers/*.xml
-  typeAliasesPackage: com.xjc.seata.order.mapper.dataobject
+  typeAliasesPackage: com.xjc.seatasaga.order.mapper.dataobject
