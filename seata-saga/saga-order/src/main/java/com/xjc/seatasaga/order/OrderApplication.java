@@ -14,10 +14,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @Date 2020/10/24
  * @Description 订单服务
  */
+@EnableTransactionManagement
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
 public class OrderApplication {
+
+    // saga模式不需要使用代理 代理数据源会和状态机冲突 会出异常导致无法回滚、悬挂等情况
 
     public static void main(String[] args) {
         ApplicationContextUtils.setApplicationContext(SpringApplication.run(OrderApplication.class, args));

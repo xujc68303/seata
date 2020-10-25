@@ -33,8 +33,8 @@
             <version>${alibaba-seata.version}</version>
             <exclusions>
                 <exclusion>
-                    <artifactId>seata-all</artifactId>
                     <groupId>io.seata</groupId>
+                    <artifactId>seata-all</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
