@@ -10,6 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Version 1.0
  * @ClassName OrderServiceImpl
@@ -33,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
     @GlobalTransactional
     @Override
     public boolean create(OrderDO order) {
-        String key = String.valueOf(System.currentTimeMillis());
+        String key = String.valueOf(System.currentTimeMillis( ));
         log.warn("交易开始! key={}", key);
         if (orderDOMapper.selectAllByProductId(order.getOrderId( )) != null) {
             return true;
@@ -42,9 +45,16 @@ public class OrderServiceImpl implements OrderService {
         order.setStatus(0);
         orderDOMapper.insertSelective(order);
 
-        accountApi.decrease(key, order.getUserId( ), order.getPayAmount());
+        Map<String, Object> cache = new HashMap<>( );
+        if (cache.put(order.getOrderId( ), order) == null) {
+            cache.remove(order.getOrderId());
+            throw new RuntimeException("cache error");
 
-        storageApi.decrease(key,order.getProductId(),order.getCount());
+        }
+
+        accountApi.decrease(key, order.getUserId( ), order.getPayAmount( ));
+
+        storageApi.decrease(key, order.getProductId( ), order.getCount( ));
 
         order.setStatus(1);
         orderDOMapper.updateByPrimaryKeySelective(order);

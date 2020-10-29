@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description
  */
 @RestController
-@RequestMapping("order")
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class OrderController {
      * @param order
      * @return
      */
-    @RequestMapping("create")
+    @RequestMapping("/create")
     public boolean create(@RequestBody OrderDO order) {
         return orderService.create(order);
     }
