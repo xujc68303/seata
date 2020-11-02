@@ -2,8 +2,9 @@ DROP DATABASE IF EXISTS 'seata_account';
 
 CREATE DATABASE 'seata_account';
 
+use 'seata_account';
+
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for pay
@@ -45,8 +46,9 @@ DROP DATABASE IF EXISTS 'seata_order';
 
 CREATE DATABASE 'seata_order';
 
+use 'seata_order';
+
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for order
@@ -155,8 +157,9 @@ DROP DATABASE IF EXISTS 'seata_storage';
 
 CREATE DATABASE 'seata_storage';
 
+use 'seata_storage';
+
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for storage
